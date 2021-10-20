@@ -42,17 +42,23 @@ function displayBlock($el) {
 function newDate(event) {
     event.preventDefault();
 
+
     timeFromInput = new Date($valueDate.value).getTime();
-    interval = setInterval(countDown, 1000)
-    qS('#date').value = null
-    displayNone($formBox)
-    displayNone($form)
-    displayNone($title)
+    console.log('valll',$valueDate.value)
 
+    
+            interval = setInterval(countDown, 1000)
+        qS('#date').value = null
+        displayNone($formBox)
+        displayNone($form)
+        displayNone($title)
 
-    setTimeout(() => {
-        displayBlock($countdown)
-    }, 1000)
+        setTimeout(() => {
+            displayBlock($countdown)
+        }, 1000)
+    
+    
+
 }
 
 function openModal() {
@@ -62,6 +68,19 @@ function openModal() {
     displayBlock($formBox)
     qS('.submit__input').value = null
     $ac.offsetWidth < 1400 ? displayNone($title) : displayBlock($title)
+
+    // const today = new Date().toISOString().slice(0, 16);
+    // console.log(new Date().toISOString())
+    const tzoffset = ((new Date()).getTimezoneOffset() * 60000 ); //offset in milliseconds
+    const localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1).slice(0,16);
+    
+    console.log('local',localISOTime)
+
+    $valueDate.setAttribute('min', localISOTime);
+    $valueDate.value = localISOTime
+    console.log('fjdf',$valueDate.getAttribute('min'))
+    
+    
 }
 
 function showNotification() {
@@ -69,12 +88,15 @@ function showNotification() {
         body: `Hi ${$nameInput.value}! Are you ready ? Take your panties, slippers and let's go to  fight a little bit`,
         icon: "https://thumbs.dreamstime.com/b/paintball-club-logo-paintball-icon-paintball-club-logo-paintball-icon-white-background-123718635.jpg"
     })
-    notification.onclick = () => {
+    notification.onclick = (e) => {
         window.location.href = "https://commandos.md/"
     }
 }
 
 const countDown = () => {
+    console.log($valueDate.value==$valueDate.getAttribute('min'))
+    console.log($valueDate.value)
+    console.log($valueDate.getAttribute('min'))
     const now = new Date().getTime();
     const restTime = timeFromInput - (now);
     const textDay = Math.floor(restTime / day);
@@ -86,7 +108,6 @@ const countDown = () => {
     $hour.innerHTML = textHour;
     $minute.innerHTML = textMinute;
     $second.innerHTML = textSecond;
-    console.log('interval from count', interval)
 
     if (restTime < 1000) {
         console.log("it's end");

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- <script type="text/javascript">
+        function sendEmail() {
+            Email.send({
+                Host : "smtp.gmail.com",
+                Username : "babybadeabum@gmail.com",
+                Password : "aaqeduihikcbxlhf",
+                To : "bobyfishermilion@gmail.com",
+                From : "babybadeabum@gmail.com",
+                Subject : "i hope it arrive",
+                Body : "hello world!"
+            }).then(
+            message => console.log(message)
+            );
+        }
+    </script> -->
+</head>
+
+<body>
+    <div class="header">
+        <div id="img"></div>
+        <img class='icon__login' src="./img/icons8-enter-50.png" alt="">
+    </div>
+
+    <div class="container">
+        <h1 id="title">You&nbsp<br> gonna be&nbsp<br>in our team! </h1>
+        <div class="countdown">
+            <div class="countdown__container">
+                <h3 class="days">Time</h3>
+                <h3>day</h3>
+            </div>
+            <div class="countdown__container">
+                <h3 class="hours">Time</h3>
+                <h3>hours</h3>
+            </div>
+            <div class="countdown__container">
+                <h3 class="minutes">Time</h3>
+                <h3>minutes</h3>
+            </div>
+            <div class="countdown__container">
+                <h3 class="seconds">Time</h3>
+                <h3>seconds</h3>
+            </div>
+        </div>
+        <div class="form__box">
+            <form method="post" id='submit__form'>
+                <input type="text" class="submit__input" placeholder="Name" required>
+                <!-- <input type="email" class="submit__input" id="mail" placeholder="Email Id" required> -->
+                <input type="datetime-local" class="submit__input" id="date" placeholder="Days" name="days" required>
+                <button class="submit__btn" type="submit">Got It</button>
+            </form>
+        </div>
+        <!-- <div class='description'>
+            <h1>
+                <span class="name">Name</span> you will receive a message after this time
+            </h1>
+            <h2>where will be next battle</h2>
+        </div> -->
+    </div>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
